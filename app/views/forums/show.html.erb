@@ -1,0 +1,39 @@
+<div class="row">
+	<div class="right controls"><%= link_to "Back to Forum List", forums_path %></div>
+	<div class="module">
+	  <div class="module_header">
+	    <h2><%= @forum.title %></h2>
+	    <span><%= link_to "New Topic", new_forum_topic_path(@forum), class: "button" %></span>
+	    <hr >
+	    <span class="controls right">
+	      <%= link_to "Edit Forum", edit_forum_path(@forum) %><br/><br/>
+	      <%= link_to "Delete Forum", forum_path(@forum), :confirm => "Are you sure you want to delete this forum?", :method => :delete %>
+	    </span>
+	  </div>
+	  <div>
+	    <table>
+	      <tr class="smaller">
+	        <th width="200">Topic</th>
+	        <th width="150">Replies</th>
+	        <th width="150">Views</th>
+	        <th width="200">Last Post</th>
+	      </tr>
+	      <% @forum.topics.each do |topic| %>
+	      <tr>
+	        <td class="icon"><strong><%= link_to topic.title, topic_path(topic) %></strong><br />created by <%= topic.user.profile_name %></td>
+	        <td class="description">
+	          <span class="smaller"><%= topic.posts.size - 1 %></span>
+	        </td>
+	        <td class="counts smaller"><%= topic.hits %></td>
+	        <td class="counts smaller">
+	        
+	          <%= time_ago_in_words(topic.posts.last.created_at) %><br />
+	          by <%= topic.posts.last.user.profile_name %>
+	        </td>
+	      </tr>
+	      <% end %>
+	    </table>
+	  </div>
+	</div>
+</div>
+ 

@@ -1,0 +1,39 @@
+<div class="row">	
+	<div class="right controls"><%= link_to "Back to Forum", forum_path(@topic.forum) %></div>
+	
+	  
+	    <h1><%= @topic.title %></h1>
+	    <div>
+		      <%= link_to "Edit", edit_topic_path(@topic) %>
+		      <%= link_to "Delete", @topic, :confirm => "Are you sure?", :method => :delete %>
+		      <%= link_to @topic.sticky ? "Unstick" : "Sticky", {:controller => 'topics', :action => 'update', :topic => {:sticky => @topic.sticky ? "false" : "true" }}, :method => :put %>
+		      <%= link_to @topic.locked ? "Unlock" : "Lock", {:controller => 'topics', :action => 'update', :topic => {:locked => @topic.locked ? "false" : "true" }}, :method => :put %>
+	 	</div><hr>
+	    
+	    <% @topic.posts.each do |post| %>
+	      <div class="panel large-9 columns">
+	      <strong><%= dat_markdown(post.body) %></strong><br />
+	      <%= post.user.profile_name %>
+	            Posted <%= time_ago_in_words(post.created_at) + " ago" %>
+	            <span class="right controls">
+	            Member since <%= time_ago_in_words(post.user.created_at.to_s(:joined)) + " ago " %>
+	            <%= link_to "Quote", new_topic_post_path(@topic, :quote => post) %>
+	            <%= link_to "Edit", edit_post_path(post) %>
+	            <%= link_to "Delete", post, :confirm => "Are you sure?", :method => :delete %>
+	            </span>
+	        </div>  
+	      <% end %>
+	      
+	    <div class="large-3 push-9 columns" style="position: fixed;">
+	      		<%= link_to "Reply", new_topic_post_path(@topic), class: "button" %>
+	      		<p><img src="http://placehold.it/250x250&text=Ad" /></p>
+	      	</div>
+	  
+	      	
+	      
+	      	
+	      
+	    
+	  
+
+</div>

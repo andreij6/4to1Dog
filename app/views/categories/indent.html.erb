@@ -1,0 +1,53 @@
+<div class="row">    
+    <h3>Dog gon' Forums</h3><hr>
+    <!-- Main Content Section -->
+    <!-- This has been source ordered to come first in the markup (and on small devices) but to be to the right of the nav on larger screens -->
+    <!-- contains the forum topic listings-->
+   <div class="large-7 push-3 columns">
+      <% @categories.each do |category| %>
+      	<% if category.forums.size > 0 %>
+	      <% category.forums.each do |forum| %>
+	        
+	          <h5><strong><%= link_to forum.title, forum_path(forum) %></strong></h5> 
+	          		<div class="large-12 columns panel">
+	          <% forum.topics.each do |topic|%>
+	          	<% if forum.topics.size > 0 %>
+		          	
+		          		<p><%= link_to topic.title, topic_path(topic) %></p>
+		          	
+	          	<% end %>
+	          <% end %>
+	          		
+	          <ul class="inline-list">
+	            <li><a href="">Reply</a></li>
+	            <li><a href="">Share</a></li>
+	          </ul>  
+	        </div>
+	        <% end %>
+	      <% end %>
+       <% end %>
+    </div>
+     <aside class="large-2 push-3 columns hide-for-small">
+      <p><img src="http://placehold.it/300x440&text=[ad]" /></p>
+      <p><img src="http://placehold.it/300x440&text=[ad]" /></p>
+    </aside> 
+    <!-- Nav Sidebar -->
+    <!-- This is source ordered to be pulled to the left on larger screens -->
+    <div class="large-3 pull-9 columns">
+   	<!-- contains forum categories with Forums listed-->
+   	<%= link_to "New Forum", new_forum_path, class: 'button' %>
+      	<% @categories.each do |category| %>
+      		<% if category.forums.size > 0 %>
+        		<p><strong><%= category.title %></strong></p>
+        		<% category.forums.each do |forum| %>
+        				<p><%= link_to forum.title, forum_path(forum) %></p>
+        		<% end %>
+        				
+        	<% else %>
+        		<p><%= category.title %></p>
+        	<% end %>
+        <% end %>
+      <p><img src="http://placehold.it/320x240&text=Ad" /></p>
+    </div>
+    
+</div>

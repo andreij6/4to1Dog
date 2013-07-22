@@ -1,0 +1,52 @@
+<div class="row">    
+    <h3>Dog gon' Forums</h3><hr>
+    <!-- Main Content Section -->
+    <!-- This has been source ordered to come first in the markup (and on small devices) but to be to the right of the nav on larger screens -->
+    <!-- contains the forum topic listings-->
+    <div class="large-6 push-3 columns">
+      <% @categories.each do |category| %>
+      	<% if category.forums.size > 0 %>
+	      <% category.forums.each do |forum| %>
+	        
+	          
+	          		<div class="large-12 columns panel">
+	          <% forum.topics.each do |topic|%>
+	          	<% if forum.topics.size > 0 %>
+		          		<p><%= link_to topic.title, topic_path(topic) %><small>hits: <%= topic.hits%></small><br/><%= time_ago_in_words(topic.created_at) + " ago " %></p>
+	          	<% end %>
+	          <% end %>
+	           <p class="right large-12 columns"><strong><%= link_to forum.title, forum_path(forum) %>:</strong><%= forum.category.title%></p> 
+	           </div>
+	        <% end %>
+	      <% end %>
+       <% end %>
+    </div>
+     <aside class="large-3 push-3 columns hide-for-small">
+      
+      <p><img src="http://placehold.it/300x1200&text=[ad]" /></p>
+    </aside> 
+    <!-- Nav Sidebar -->
+    <!-- This is source ordered to be pulled to the left on larger screens -->
+    <div class="large-3 pull-9 columns">
+    <%= link_to "New Forum", new_forum_path, class: 'button' %>
+   	<!-- Side Category With Forum Listings-->
+	    <div class="section-container accordion" data-section="accordion">
+	    	<% @categories.each do |category| %>
+	    		
+			  <section>
+			    <p class="title" data-section-title><a href="#"><strong><%= category.title %></strong> </a></p>
+			    <div class="content" data-section-content>
+			    	<% if category.forums.size > 0 %>
+				    	<% category.forums.each do |forum| %>
+					      <p><strong><%= link_to forum.title, forum_path(forum) %></strong> <%= forum.topics.size%></p>
+					    <% end %>
+					<% else %>
+							<p>No Forums yet</p>
+				    <% end %>
+				     
+			    </div>
+			  </section>
+			<% end %>
+		</div>
+    <p><img src="http://placehold.it/320x240&text=Ad" /></p>
+</div>
