@@ -1,4 +1,9 @@
 Treebook::Application.routes.draw do
+
+  
+
+ 
+
   get "videos/index"
   get 'tags/:tag', to: 'blogs#index', as: :tag
   
@@ -6,9 +11,10 @@ Treebook::Application.routes.draw do
 
   root to: "welcome#index"
 
-  resources :blogs 
-
-
+  resources :blogs do
+    resources :comments
+  end
+  
   resources :categories, :except => [:index, :show]
   resources :forums, :except => :index do
     resources :topics, :shallow => true, :except => :index do
