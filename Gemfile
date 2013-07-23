@@ -43,5 +43,5 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
+gem 'acts-as-taggable-on'
 gem 'ransack'

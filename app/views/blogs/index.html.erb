@@ -10,11 +10,15 @@
  
         <div class="row">
           <div class="large-12 columns">
-            <p><%= dat_markdown(blog.body.truncate(700)) %></p>
+            <p><%= dat_markdown(blog.body.truncate(750)) %></p>
       </article>
+      <!-- try to make a helper method so you dont have to use raw -->
+      		Tags: <%= raw blog.tag_list.map { |t|  link_to t, tag_path(t)}.join(', ')%>
+      		<span class='right'>
  			<%= link_to 'Show', blog %>
     		<%= link_to 'Edit', edit_blog_path(blog) %>
     		<%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+      		</span>
       <hr />
  
       <article>
@@ -29,13 +33,11 @@
     <aside class="large-3 columns">
  
       <h5>Tags</h5>
-      <ul class="side-nav">
-        <li><a href="#">News</a></li>
-        <li><a href="#">Code</a></li>
-        <li><a href="#">Design</a></li>
-        <li><a href="#">Fun</a></li>
-        <li><a href="#">Weasels</a></li>
-      </ul>
+      <div id = "tag_cloud">
+        <% tag_cloud Blog.tag_counts, %[s m l] do | tag, css_class| %>
+        	<p><%= link_to tag.name, tag_path(tag.name), class: css_class %></p>
+        <% end %>
+      </div>
  
       <div class="panel">
         <h5>Featured</h5>

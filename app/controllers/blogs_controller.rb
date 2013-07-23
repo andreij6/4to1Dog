@@ -2,8 +2,11 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.all
-
+    if params[:tag]
+      @blogs = Blog.tagged_with(params[:tag])
+    else
+      @blogs = Blog.all
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @blogs }
