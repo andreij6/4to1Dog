@@ -17,7 +17,7 @@ gem 'forum_monster'
 gem 'redcarpet'
 
 
-group :development do
+group :production do
   gem 'thin'
 end
 
