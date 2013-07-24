@@ -15,7 +15,7 @@
 	      <li class="name">
 	        <h1>
 	          <% if user_signed_in? %>
-					<%= link_to "4to1Dog", activities_path, class: 'brand' %>
+					<%= link_to "4to1Dog", root_path, class: 'brand' %>
 				<% else %>
 					<%= link_to "4to1Dog", root_path, class: 'brand' %>
 				<% end %>
@@ -33,6 +33,7 @@
 	          <a href="#">Social</a>
 	          <ul class="dropdown">
 	            <li><%= link_to "All Statuses", feed_path %></li>
+	            <li><%= link_to "Activity Feed", activities_path, class: 'brand' %></li>
 	            <li><%= link_to "Forum", forums_root_path %></li>
 	            <li><%= link_to "Blogs", blogs_path %></li>
 	          </ul>
