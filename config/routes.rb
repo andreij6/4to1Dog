@@ -4,6 +4,9 @@ Treebook::Application.routes.draw do
 
  
 
+  resources :videos
+
+
   get "videos/index"
   get 'tags/:tag', to: 'blogs#index', as: :tag
   

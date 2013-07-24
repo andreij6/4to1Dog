@@ -31,7 +31,7 @@
     <!-- Sidebar -->
  
     <aside class="large-3 columns">
- 
+ 		<%= link_to "New Blog", new_blog_path, class: "button"%>
       <h5>Tags</h5>
       <div id = "tag_cloud">
         <% tag_cloud Blog.tag_counts, %[s m l] do | tag, css_class| %>
