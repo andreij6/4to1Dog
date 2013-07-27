@@ -1,9 +1,13 @@
 class VideosController < ApplicationController
+  before_filter :authenticate_user!, only: [:new, :create, :edit, :update]
   # GET /videos
   # GET /videos.json
   def index
-    @videos = Video.all
-
+    if params[:tag]
+      @videos = Video.tagged_with(params[:tag])#.page(params[:page]).per_page(5)
+    else
+      @videos = Video.all
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @videos }
@@ -14,7 +18,10 @@ class VideosController < ApplicationController
   # GET /videos/1.json
   def show
     @video = Video.find(params[:id])
-
+    @commentable = @video
+    @comments = @commentable.comments
+    @comment = Comment.new
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @video }

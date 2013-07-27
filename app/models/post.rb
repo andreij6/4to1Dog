@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+  resourcify
   
   # Associations
   belongs_to :forum, :counter_cache => true

@@ -1,4 +1,6 @@
 class PostsController < ApplicationController    
+  before_filter :authenticate_user!, only: [:new, :create, :edit, :update]
+  
   def new
     @topic = Topic.find(params[:topic_id])
     @post = Post.new

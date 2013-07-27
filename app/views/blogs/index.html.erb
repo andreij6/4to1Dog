@@ -1,12 +1,12 @@
 <div class="row">
- 
+
     <!-- Main Blog Content -->
     <div class="large-9 columns" role="content">
  		<% @blogs.each do |blog| %>
       <article>
  
         <h3><%= blog.title %></h3>
-        <h6>Written by <a href="#">John Smith</a> <%= (blog.created_at).strftime("%b %-d %Y") %></h6>
+        <h6>Written by <%=link_to blog.user.profile_name, "#"%> <%= (blog.created_at).strftime("%b %-d %Y") %></h6>
  
         <div class="row">
           <div class="large-12 columns">
@@ -15,9 +15,13 @@
       <!-- try to make a helper method so you dont have to use raw -->
       		Tags: <%= raw blog.tag_list.map { |t|  link_to t, tag_path(t)}.join(', ')%>
       		<span class='right'>
- 			<%= link_to 'Show', blog %>
-    		<%= link_to 'Edit', edit_blog_path(blog) %>
-    		<%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+      		Comment count (<%= blog.comments.count %>)
+      		 
+ 			<%= link_to 'Read More..', blog %>
+ 			<% if current_user == blog.user %>
+	    		<%= link_to 'Edit', edit_blog_path(blog) %>
+	    		<%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+	    	<% end %>
       		</span>
       <hr />
  

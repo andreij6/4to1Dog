@@ -1,4 +1,5 @@
 class Category < ActiveRecord::Base
+  resourcify
   
   # Associations
   has_many :forums, :dependent => :destroy

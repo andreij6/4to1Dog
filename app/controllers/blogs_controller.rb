@@ -1,9 +1,11 @@
 class BlogsController < ApplicationController
+  before_filter :authenticate_user!, only: [:new, :create, :edit, :update]
+  
   # GET /blogs
   # GET /blogs.json
   def index
     if params[:tag]
-      @blogs = Blog.tagged_with(params[:tag])
+      @blogs = Blog.tagged_with(params[:tag])#.page(params[:page]).per_page(5)
     else
       @blogs = Blog.all
     end
@@ -30,7 +32,7 @@ class BlogsController < ApplicationController
   # GET /blogs/new
   # GET /blogs/new.json
   def new
-    @blog = Blog.new
+    @blog = current_user.blogs.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,13 +42,13 @@ class BlogsController < ApplicationController
 
   # GET /blogs/1/edit
   def edit
-    @blog = Blog.find(params[:id])
+    @blog = current_user.blogs.find(params[:id])
   end
 
   # POST /blogs
   # POST /blogs.json
   def create
-    @blog = Blog.new(params[:blog])
+    @blog = current_user.blogs.new(params[:blog])
 
     respond_to do |format|
       if @blog.save
@@ -62,8 +64,10 @@ class BlogsController < ApplicationController
   # PUT /blogs/1
   # PUT /blogs/1.json
   def update
-    @blog = Blog.find(params[:id])
-
+    @blog = current_user.blogs.find(params[:id])
+    if params[:blog]&&params[:blog].has_key?(:user_id)
+      params[:status].delete(:user_id)
+    end
     respond_to do |format|
       if @blog.update_attributes(params[:blog])
         format.html { redirect_to @blog, notice: 'Blog was successfully updated.' }
@@ -78,7 +82,7 @@ class BlogsController < ApplicationController
   # DELETE /blogs/1
   # DELETE /blogs/1.json
   def destroy
-    @blog = Blog.find(params[:id])
+    @blog = current_user.blogs.find(params[:id])
     @blog.destroy
 
     respond_to do |format|

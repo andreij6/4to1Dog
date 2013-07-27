@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  rolify
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -19,7 +20,8 @@ class User < ActiveRecord::Base
                              with: /^[a-zA-Z0-9_-]+$/,
                              message: 'Must be formatted correctly.'
                            }
-  
+  has_many :articles
+  has_many :comments
   has_many :blogs
   has_many :activities
   has_many :albums

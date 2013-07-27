@@ -38,6 +38,7 @@ GEM
     bourne (1.1.2)
       mocha (= 0.10.5)
     builder (3.0.4)
+    cancan (1.6.10)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.1)
@@ -132,6 +133,7 @@ GEM
       json (~> 1.4)
     redcarpet (3.0.0)
     request_store (1.0.5)
+    rolify (3.2.0)
     sass (3.2.7)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -185,6 +187,7 @@ PLATFORMS
 DEPENDENCIES
   acts-as-taggable-on
   bootstrap-will_paginate
+  cancan
   coffee-rails (~> 3.2.1)
   devise
   draper (~> 1.0)
@@ -198,6 +201,7 @@ DEPENDENCIES
   rails (= 3.2.12)
   ransack
   redcarpet
+  rolify
   sass-rails (~> 3.2.3)
   shoulda
   simple_form

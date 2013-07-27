@@ -14,7 +14,9 @@
   <b>Series:</b>
   <%= @video.series %>
 </p>
-
+<h2> Comments</h2>
+	<%= render "comments/comments"%>
+	<%= render "comments/form" %>
 
 <%= link_to 'Edit', edit_video_path(@video) %> |
 <%= link_to 'Back', videos_path %>

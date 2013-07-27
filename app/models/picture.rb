@@ -1,4 +1,6 @@
 class Picture < ActiveRecord::Base
+ resourcify
+ 
   belongs_to :album
   belongs_to :user
   attr_accessible :caption, :description, :asset

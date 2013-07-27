@@ -4,9 +4,11 @@
 	 <h3><%= @blog.title %></h3>
 	<p>
 	  <%= dat_markdown(@blog.body) %>
+	  <%= @blog.user.profile_name %>
 	</p>
-	<%= link_to 'Edit', edit_blog_path(@blog) %> |
-	<%= link_to 'Back', blogs_path %>
+	<% if current_user == @blog.user%>
+		<%= link_to 'Edit', edit_blog_path(@blog) %> |
+	<% end %>
 	<div>
 	<hr />
 	<h2> Comments</h2>

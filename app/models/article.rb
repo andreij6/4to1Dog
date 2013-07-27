@@ -1,10 +1,9 @@
-class Blog < ActiveRecord::Base
+class Article < ActiveRecord::Base
   resourcify
   
   attr_accessible :body, :title, :tag_list
   acts_as_taggable
   
- 
   has_many :comments, as: :commentable
   belongs_to :user
   

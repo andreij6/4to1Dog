@@ -1,5 +1,7 @@
 class ForumsController < ApplicationController    
   
+  before_filter :authenticate_user!, only: [:new, :create, :edit, :update]
+  
   def index
     @search = Forum.search(params[:q])
     @forum = @search.result

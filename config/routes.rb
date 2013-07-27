@@ -1,15 +1,20 @@
 Treebook::Application.routes.draw do
 
+  resources :articles do 
+    resources :comments
+  end
   
 
- 
 
-  resources :videos
+  resources :videos do
+    resources :comments
+  end
 
 
   get "videos/index"
   get 'tags/:tag', to: 'blogs#index', as: :tag
-  
+  get 'tags/:tag', to: 'videos#index', as: :tag
+  get 'tags/:tag', to: 'articles#index', as: :tag
   
 
   root to: "welcome#index"
