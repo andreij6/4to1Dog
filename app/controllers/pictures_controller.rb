@@ -5,7 +5,8 @@ class PicturesController < ApplicationController
   before_filter :find_picture, only: [:edit, :update, :show, :destroy]
   before_filter :ensure_proper_user, only: [:edit, :new, :create, :update, :destroy]
   before_filter :add_breadcrumbs
-
+  load_and_authorize_resource
+  
   # GET /pictures
   # GET /pictures.json
   def index

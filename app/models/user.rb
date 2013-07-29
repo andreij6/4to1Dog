@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
-  rolify
+  before_save :default_values
+  def default_values
+    self.role ||= 'regular'
+  end
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -8,7 +11,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me,
-                  :first_name, :last_name, :profile_name, :avatar
+                  :first_name, :last_name, :profile_name, :avatar, :role
   
   validates :first_name, presence: true
 
@@ -22,11 +25,11 @@ class User < ActiveRecord::Base
                            }
   has_many :articles
   has_many :comments
-  has_many :blogs
-  has_many :activities
+  has_many :blogs, :dependent => :destroy
+  has_many :activities, :dependent => :destroy
   has_many :albums
   has_many :pictures
-  has_many :statuses
+  has_many :statuses, :dependent => :destroy
   has_many :user_friendships
   has_many :friends, through: :user_friendships,
                      conditions: { user_friendships: { state: 'accepted' } }
@@ -58,7 +61,11 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, styles: {
     large: "800x800>", medium: "300x200>", small: "260x180>", thumb: "80x80#"
   }
-
+  ROLES =%w[admin moderator student regular guest]
+  
+  
+  
+  
   def self.get_gravatars
     all.each do |user|
       if !user.avatar?

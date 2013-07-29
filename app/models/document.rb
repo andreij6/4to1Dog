@@ -1,5 +1,5 @@
 class Document < ActiveRecord::Base
-  resourcify
+  
   
   attr_accessible :attachment, :remove_attachment
   has_attached_file :attachment

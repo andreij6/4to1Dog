@@ -1,5 +1,5 @@
 class Status < ActiveRecord::Base
-  resourcify
+  
   
   attr_accessible :content, :document_attributes
   belongs_to :user

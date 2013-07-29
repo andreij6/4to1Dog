@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
  before_filter :authenticate_user!, only: [:new, :create, :edit, :update]
  before_filter :load_commentable
+ load_and_authorize_resource
  
   def index
     

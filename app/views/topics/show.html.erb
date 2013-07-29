@@ -12,15 +12,24 @@
 	    
 	    <% @topic.posts.each do |post| %>
 	      <div class="panel large-9 columns">
+	      <% if can? :read, @topic%>
 	      <strong><%= dat_markdown(post.body) %></strong><br />
+	      <% end %>
 	      <%= post.user.profile_name %>
 	            Posted <%= time_ago_in_words(post.created_at) + " ago" %>
 	            <span class="right controls">
 	            Member since <%= time_ago_in_words(post.user.created_at.to_s(:joined)) + " ago " %>
+	            <% if can? :create, @topic %>
 	            <%= link_to "Quote", new_topic_post_path(@topic, :quote => post) %>
+	            <% end %>
+	            <% if can? :update, @topic %>
 	            <%= link_to "Edit", edit_post_path(post) %>
+	            <% end %>
+	            <% if can? :delete, @topic %>
 	            <%= link_to "Delete", post, :confirm => "Are you sure?", :method => :delete %>
+	            <% end %>
 	            </span>
+	            
 	        </div>  
 	      <% end %>
 	      

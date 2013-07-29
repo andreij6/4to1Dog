@@ -32,7 +32,9 @@
    	<!-- Side Category With Forum Listings-->
 	    <div class="section-container accordion" data-section="accordion">
 	    	<% @categories.each do |category| %>
-	    		
+	    	<%case category.title%>
+	    		<% when 'Private'%>
+	    			<% if can? :manage, @category%>
 			  <section>
 			    <p class="title" data-section-title><a href="#"><strong><%= category.title %></strong> </a></p>
 			    <div class="content" data-section-content>
@@ -46,7 +48,23 @@
 				     
 			    </div>
 			  </section>
+			  	<% end %>
+			  	<% else %>
+			  	<section>
+			    <p class="title" data-section-title><a href="#"><strong><%= category.title %></strong> </a></p>
+			    <div class="content" data-section-content>
+			    	<% if category.forums.size > 0 %>
+				    	<% category.forums.each do |forum| %>
+					      <p><strong><%= link_to forum.title, forum_path(forum) %></strong> <%= forum.topics.size%></p>
+					    <% end %>
+					<% else %>
+							<p>No Forums yet</p>
+				    <% end %>
+				     
+			    </div>
+			  </section>
 			<% end %>
+		<% end %>
 		</div>
     <p><img src="http://placehold.it/320x240&text=Ad" /></p>
 </div>

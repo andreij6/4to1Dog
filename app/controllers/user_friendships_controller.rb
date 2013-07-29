@@ -1,7 +1,8 @@
 class UserFriendshipsController < ApplicationController
   before_filter :authenticate_user!
   respond_to :html, :json
-
+  load_and_authorize_resource
+  
   def index
     @user_friendships = UserFriendshipDecorator.decorate_collection(friendship_association.all)
     respond_with @user_friendships

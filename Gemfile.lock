@@ -133,7 +133,6 @@ GEM
       json (~> 1.4)
     redcarpet (3.0.0)
     request_store (1.0.5)
-    rolify (3.2.0)
     sass (3.2.7)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -201,7 +200,6 @@ DEPENDENCIES
   rails (= 3.2.12)
   ransack
   redcarpet
-  rolify
   sass-rails (~> 3.2.3)
   shoulda
   simple_form

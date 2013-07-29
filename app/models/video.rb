@@ -1,5 +1,5 @@
 class Video < ActiveRecord::Base
-  resourcify
+  
   
   attr_accessible :code, :series, :title, :tag_list
   acts_as_taggable

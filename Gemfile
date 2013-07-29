@@ -16,7 +16,8 @@ gem 'bootstrap-will_paginate'
 gem 'forum_monster'
 gem 'redcarpet'
 gem "cancan"
-gem 'rolify'
+
+
 
 
 group :production do

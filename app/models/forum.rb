@@ -1,5 +1,4 @@
 class Forum < ActiveRecord::Base
-  resourcify
   
   # Associations
   has_many :topics, :dependent => :destroy

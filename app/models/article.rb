@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-  resourcify
+  
   
   attr_accessible :body, :title, :tag_list
   acts_as_taggable

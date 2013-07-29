@@ -1,5 +1,5 @@
 class ForumsController < ApplicationController    
-  
+  load_and_authorize_resource
   before_filter :authenticate_user!, only: [:new, :create, :edit, :update]
   
   def index

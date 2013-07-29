@@ -2,7 +2,8 @@ class StatusesController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :create, :edit, :update]
 
   rescue_from ActiveModel::MassAssignmentSecurity::Error, with: :render_permission_error
-
+  load_and_authorize_resource
+  
   # GET /statuses
   # GET /statuses.json
   def index
