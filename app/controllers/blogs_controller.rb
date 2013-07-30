@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :create, :edit, :update]
-  load_and_authorize_resource
+  
   # GET /blogs
   # GET /blogs.json
   def index

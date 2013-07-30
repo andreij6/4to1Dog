@@ -5,7 +5,7 @@ Treebook::Application.routes.draw do
     resources :comments
   end
   
-
+  match 'announcements/:id/hide', to: 'announcements#hide', as: 'hide_announcement'
 
   resources :videos do
     resources :comments

@@ -66,6 +66,7 @@ class User < ActiveRecord::Base
   
   
   
+  
   def self.get_gravatars
     all.each do |user|
       if !user.avatar?

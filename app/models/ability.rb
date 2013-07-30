@@ -29,13 +29,32 @@ class Ability
     # See the wiki for details:
     # https://github.com/ryanb/cancan/wiki/Defining-Abilities
     
-   if user.role == 'admin'
+     user ||= User.new 
+     
+    if user.role == 'admin'
       can :manage, :all
-    else
+      
+    elsif user.role == 'student'
       can :read, :all
-      can :manage, Status
-    end
-    
-  end
+      can :create, :all
+      can :update, :all do |all|
+        all.try(:user) == user
+      end
+      can :delete, :all do |all|
+        all.try(:user) == user
+      end
+      
+    elsif user.role == 'regular'
+      can :read, :all
+      can :create, :all
+      can :update, :all do |all|
+        all.try(:user) == user
+      end
+      cannot :read, Video
+    else
+      can :read, :blog
+   end
+   end
+      
 
 end
