@@ -1,6 +1,9 @@
 Treebook::Application.routes.draw do
 
 
+  
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
   resources :articles do 
     resources :comments
   end
@@ -41,6 +44,7 @@ Treebook::Application.routes.draw do
   end
 
   devise_for :users, skip: [:sessions]
+  
   as :user do
     get "/login" => 'devise/sessions#new', as: :new_user_session
     post "/login" => 'devise/sessions#create', as: :user_session

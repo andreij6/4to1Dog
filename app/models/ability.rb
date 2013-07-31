@@ -43,6 +43,7 @@ class Ability
       can :delete, :all do |all|
         all.try(:user) == user
       end
+      cannot :access, :rails_admin
       
     elsif user.role == 'regular'
       can :read, :all
@@ -51,6 +52,7 @@ class Ability
         all.try(:user) == user
       end
       cannot :read, Video
+      cannot :access, :rails_admin
     else
       can :read, :blog
    end

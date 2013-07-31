@@ -16,7 +16,7 @@ gem 'bootstrap-will_paginate'
 gem 'forum_monster'
 gem 'redcarpet'
 gem "cancan"
-
+gem 'rails_admin'
 
 
 
