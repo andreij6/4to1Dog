@@ -16,7 +16,7 @@
 <% @user_friendships.each do |friendship| %>
   <% friend = friendship.friend %>
   <div id="<%= dom_id(friendship) %>" class="media friend">
-    <%= avatar_profile_link friendship.friend, {}, class: 'pull-left' %>
+    
     <div class="media-body">
       <h4 class="media-heading"><%= friend.full_name %></h4>
       <em>Friendship is <%= friendship.state %></em>. <br />
