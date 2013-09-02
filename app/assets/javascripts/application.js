@@ -14,7 +14,17 @@
 //= require jquery_ujs
 //= require foundation
 //= require js-routes
+//= require modernizr.custom
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+$(document).ready(function(){
+	$('#cbp-hrmenu > ul > li').mouseenter(function(){
+		$(this).addClass('cbp-hropen');
+	});
+	$('#cbp-hrmenu > ul > li').mouseleave(function(){
+		$(this).removeClass('cbp-hropen');
+	});
+}); 
 

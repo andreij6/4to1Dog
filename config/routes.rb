@@ -1,7 +1,9 @@
 Treebook::Application.routes.draw do
 
 
-  
+  resources :lives
+
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   resources :articles do 

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>4to1Dog</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "vendor/custom.modernizr" %>
+  <%= csrf_meta_tags %>
+  
+</head>
+<body>
+	<% Announcement.current(cookies.signed[:hidden_announcement_ids]).each do |announcement| %>
+	  <%= div_for announcement do %>
+	    <%= announcement.message %>
+	    <%= link_to "hide announcement", hide_announcement_path(announcement), remote: true %>
+	  <% end %>
+	<% end %>
+	
+	
+		<%= yield %>
+	   
+	 <%= javascript_include_tag "application" %>
+</body>
+</html>
