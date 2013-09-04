@@ -1,6 +1,8 @@
 Treebook::Application.routes.draw do
 
 
+  get "dashboard/index"
+
   resources :lives
 
 

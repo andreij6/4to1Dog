@@ -1,0 +1,71 @@
+// Place all the styles related to the dashboard controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.goof {
+  background: red;
+  height: 720px;
+  border-radius: 15px;
+}
+
+.timed {
+  height:360px;
+  background: #B75A59;
+  border-radius: 15px 0px 0px 0px;
+  text-align: center;
+  padding-top: 100px;
+  color: #7C2524;
+  font-size: 24px;
+}
+.sections {
+  line-height: 90px;
+  //text-align: center;
+  color: white;
+  font-size: 30px;
+}
+.side {
+  height: 90px;
+}
+#top {
+  border-radius: 0px 15px 0px 0px;
+  background: #7C2524;
+}
+
+#thirdside{
+  background: #7C2524;
+}
+
+#side4 {
+  background: #A53130
+}
+
+#side2{
+  background: #A53130
+}
+.bottom {
+  height: 360px;
+ 
+}
+#b2bomer {
+   background: #290C0C;
+}
+#bleft{
+  border-radius: 0px 0px 0px 15px;
+  background: #7C2524;
+}
+#bright{
+   border-radius: 0px 0px 15px 0px;
+   background: #290C0C
+}
+#s2last{
+   background: #7C2524;
+}
+.spaced {
+  height: 100px;
+}
+
+.clock {
+  font-size: 80px;
+  margin-bottom: 0px;
+  color: white;
+}
