@@ -38,13 +38,13 @@ li a:hover {color:#A53130}
 .isactive {
 	font-size: 72px;
 	color: #A53130;
-	font-family: "Avant Garde", "Avantgarde", "Century Gothic", "CenturyGothic", "AppleGothic", "sans-serif"
+	font-family: "Avant Garde", "Avantgarde", "Century Gothic", "CenturyGothic", "AppleGothic", "sans-serif";
 
 }
 .notactive {
 	font-size: 24px;
 	color: white;
-	font-family: "Avant Garde", "Avantgarde", "Century Gothic", "CenturyGothic", "AppleGothic", "sans-serif"
+	font-family: "Avant Garde", "Avantgarde", "Century Gothic", "CenturyGothic", "AppleGothic", "sans-serif";
 }
 
 
@@ -66,7 +66,7 @@ li a:hover {color:#A53130}
 
 .btn {
 	width: 125px;
-	height: 50px
+	height: 50px;
 	border: 1px solid white;
 	color: white;
 	font-weight: bold;
