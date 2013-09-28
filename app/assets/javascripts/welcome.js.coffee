@@ -6,7 +6,12 @@ $(document).ready ->
   $("#1").mouseenter ->
     $("#1").css "color", "#A53130"
   $('#1').click ->
-    $('#spat').toggle "slow"
+    $(this).css "font-size", "72px"
+    $('#2').css "font-size", "36px"
+    $('#3').css "font-size", "36px"
+    $('#spat').css "display", "inline"
+    $('#spat2').css "display", "none"
+    $('#spat3').css "display", "none"
   
   $("#1").mouseout ->
     $("#1").css "color", "#A1A5A5"   
@@ -14,7 +19,12 @@ $(document).ready ->
   $("#2").mouseenter ->
     $("#2").css "color", "#A53130"
   $('#2').click ->
-    $('#spat2').toggle "slow"
+    $(this).css "font-size", "72px"
+    $('#1').css "font-size", "36px"
+    $('#3').css "font-size", "36px"
+    $('#spat').css "display", "none"
+    $('#spat2').css "display", "inline"
+    $('#spat3').css "display", "none"
   
   $("#2").mouseout ->
     $("#2").css "color", "#A1A5A5"
@@ -22,7 +32,12 @@ $(document).ready ->
   $("#3").mouseenter ->
     $("#3").css "color", "#A53130"
   $('#3').click ->
-    $('#spat3').toggle "slow"
+    $(this).css "font-size", "72px"
+    $('#2').css "font-size", "36px"
+    $('#1').css "font-size", "36px"
+    $('#spat').css "display", "none"
+    $('#spat2').css "display", "none"
+    $('#spat3').css "display", "inline"
   
   $("#3").mouseout ->
     $("#3").css "color", "#A1A5A5"

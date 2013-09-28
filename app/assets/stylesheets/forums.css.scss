@@ -1,0 +1,65 @@
+.categoryTitle {
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  font-size: 30px;
+  color: #555;
+}
+
+.categoryDescription {
+  color: lightgrey;
+  font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  font-size: 20px;
+}
+
+#forumid {
+  text-align: center;
+}
+
+.fortit {
+  color: lightgrey;
+  
+  
+}
+
+.fortit span {
+  font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.fortit p a {
+  color: #555;
+  font-size: 2em;
+  font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+}
+.fortit p a:hover {
+  color: white;
+}
+
+p small {
+  color: #A53130;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+table a {
+  color: #A53130;
+}
+
+table a:hover {
+  color: #000;
+}
+
+table tr:hover {
+  background: #ccc;
+}
+
+.paneled {
+  border-bottom: 2px solid lightgrey;
+  border-left: 2px solid lightgrey;
+  margin-bottom: 15px;
+  
+}
+
+.paneled:hover {
+  background: #111;
+}

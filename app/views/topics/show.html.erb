@@ -1,23 +1,28 @@
 <div class="row">	
-	<div class="right controls"><%= link_to "Back to Forum", forum_path(@topic.forum) %></div>
+	<br />
+	<div class="large-12 columns">	
+	<%= link_to forum_path(@topic.forum) do %>
+	 	<div class="buttoned2">
+	 		<%=  @topic.forum.title.upcase.to_s + " TOPIC LIST" %>
+	 	</div>
+	 	<% end %>
+	</div><br />
 	
 	  
-	    <h1><%= @topic.title %></h1>
-	    <div>
-		      <%= link_to "Edit", edit_topic_path(@topic) %>
-		      <%= link_to "Delete", @topic, :confirm => "Are you sure?", :method => :delete %>
-		      <%= link_to @topic.sticky ? "Unstick" : "Sticky", {:controller => 'topics', :action => 'update', :topic => {:sticky => @topic.sticky ? "false" : "true" }}, :method => :put %>
-		      <%= link_to @topic.locked ? "Unlock" : "Lock", {:controller => 'topics', :action => 'update', :topic => {:locked => @topic.locked ? "false" : "true" }}, :method => :put %>
-	 	</div><hr>
+	    <h1 class="optima"><%= @topic.title %></h1>
+	    
 	    
 	    <% @topic.posts.each do |post| %>
-	      <div class="panel large-9 columns">
+	      <div class="paneled large-8 large-offset-1 columns">
 	      <% if can? :read, @topic%>
-	      <strong><%= dat_markdown(post.body) %></strong><br />
+	      <span class="categoryDescription"><%= dat_markdown(post.body) %>
+	      	<small><%= time_ago_in_words(post.created_at) + " ago" %></small>
+	      </span><br />
 	      <% end %>
-	      <%= post.user.profile_name %>
-	            Posted <%= time_ago_in_words(post.created_at) + " ago" %>
+	      
+	            
 	            <span class="right controls">
+	            <%= post.user.profile_name.upcase %> -
 	            Member since <%= time_ago_in_words(post.user.created_at.to_s(:joined)) + " ago " %>
 	            <% if can? :create, @topic %>
 	            <%= link_to "Quote", new_topic_post_path(@topic, :quote => post) %>
@@ -30,13 +35,17 @@
 	            <% end %>
 	            </span>
 	            
-	        </div>  
+	        </div> <br /> 
 	      <% end %>
 	      
 	    <div class="large-3 push-9 columns" style="position: fixed;">
-	      		<%= link_to "Reply", new_topic_post_path(@topic), class: "button" %>
-	      		<p><img src="http://placehold.it/250x250&text=Ad" /></p>
-	      	</div>
+	      	<%= link_to new_topic_post_path(@topic) do %>
+			 	<div class="buttoned">
+			 		Reply
+			 	</div>
+			 <% end %>
+		</div>
+	      	
 	  
 	      	
 	      

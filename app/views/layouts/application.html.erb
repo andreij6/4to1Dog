@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>4to1Dog</title>
+  <title>4to1Dog - <%= yield(:title) || "The Place to Buy Stuff" %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "vendor/custom.modernizr" %>
   <%= csrf_meta_tags %>
   
 </head>
-<body class="blackbody">
+<body>
 	<% Announcement.current(cookies.signed[:hidden_announcement_ids]).each do |announcement| %>
 	  <%= div_for announcement do %>
 	    <%= announcement.message %>
@@ -15,166 +15,41 @@
 	  <% end %>
 	<% end %>
 	
-	    <div class="container">
-				
-			<div class="main">
-				<nav id="cbp-hrmenu" class="cbp-hrmenu">
-					<ul>
-						<li>
-							<a href="#">Socialize</a>
-							<div class="cbp-hrsub">
-								<div class="cbp-hrsub-inner"> 
-									<div class="pull-right">
-										<h4>Learning &amp; Games</h4>
-										<ul>
-											<li><a href="#">Catch the Bullet</a></li>
-											<li><a href="#">Snoopydoo</a></li>
-											<li><a href="#">Fallen Angel</a></li>
-											<li><a href="#">Sui Maker</a></li>
-											<li><a href="#">Wave Master</a></li>
-											<li><a href="#">Golf Pro</a></li>
-										</ul>
-									</div>
-									<div>
-										<h4>Utilities</h4>
-										<ul>
-											<li><a href="#">Gadget Finder</a></li>
-											<li><a href="#">Green Tree Express</a></li>
-											<li><a href="#">Green Tree Pro</a></li>
-											<li><a href="#">Wobbler 3.0</a></li>
-											<li><a href="#">Coolkid</a></li>
-										</ul>
-									</div>
-									<div>
-										<h4>Education</h4>
-										<ul>
-											<li><a href="#">Learn Thai</a></li>
-											<li><a href="#">Math Genius</a></li>
-											<li><a href="#">Chemokid</a></li>
-										</ul>
-										<h4>Professionals</h4>
-										<ul>
-											<li><a href="#">Success 1.0</a></li>
-											<li><a href="#">Moneymaker</a></li>
-										</ul>
-									</div>
-								</div><!-- /cbp-hrsub-inner -->
-							</div><!-- /cbp-hrsub -->
-						</li>
-						<li>
-							<a href="#">Train</a>
-							<div class="cbp-hrsub">
-								<div class="cbp-hrsub-inner">
-									<div>
-										<h4>Education &amp; Learning</h4>
-										<ul>
-											<li><a href="#">Learn Thai</a></li>
-											<li><a href="#">Math Genius</a></li>
-											<li><a href="#">Chemokid</a></li>
-										</ul>
-										<h4>Professionals</h4>
-										<ul>
-											<li><a href="#">Success 1.0</a></li>
-											<li><a href="#">Moneymaker</a></li>
-										</ul>
-									</div>
-									<div>
-										<h4>Entertainment</h4>
-										<ul>
-											<li><a href="#">Gadget Finder</a></li>
-											<li><a href="#">Green Tree Express</a></li>
-											<li><a href="#">Green Tree Pro</a></li>
-											<li><a href="#">Holy Cannoli</a></li>
-											<li><a href="#">Wobbler 3.0</a></li>
-											<li><a href="#">Coolkid</a></li>
-										</ul>
-									</div>
-									<div>
-										<h4>Games</h4>
-										<ul>
-											<li><a href="#">Catch the Bullet</a></li>
-											<li><a href="#">Snoopydoo</a></li>
-											<li><a href="#">Fallen Angel</a></li>
-											<li><a href="#">Sui Maker</a></li>
-											<li><a href="#">Wave Master</a></li>
-											<li><a href="#">Golf Pro</a></li>
-										</ul>
-									</div>
-								</div><!-- /cbp-hrsub-inner -->
-							</div><!-- /cbp-hrsub -->
-						</li>
-						<li>
-							<a href="#">About Us</a>
-							<div class="cbp-hrsub">
-								<div class="cbp-hrsub-inner"> 
-									<div>
-										<h4>Learning &amp; Games</h4>
-										<ul>
-											<li><a href="#">Catch the Bullet</a></li>
-											<li><a href="#">Snoopydoo</a></li>
-										</ul>
-										<h4>Utilities</h4>
-										<ul>
-											<li><a href="#">Gadget Finder</a></li>
-											<li><a href="#">Green Tree Express</a></li>
-											<li><a href="#">Green Tree Pro</a></li>
-											<li><a href="#">Wobbler 3.0</a></li>
-											<li><a href="#">Coolkid</a></li>
-										</ul>
-									</div>
-									<div>
-										<h4>Education</h4>
-										<ul>
-											<li><a href="#">Learn Thai</a></li>
-											<li><a href="#">Math Genius</a></li>
-											<li><a href="#">Chemokid</a></li>
-										</ul>
-										<h4>Professionals</h4>
-										<ul>
-											<li><a href="#">Success 1.0</a></li>
-											<li><a href="#">Moneymaker</a></li>
-										</ul>
-									</div>
-								</div><!-- /cbp-hrsub-inner -->
-							</div><!-- /cbp-hrsub -->
-						</li>
-						<li>
-							<a href="#">Contact</a>
-							<div class="cbp-hrsub">
-								<div class="cbp-hrsub-inner"> 
-									<div>
-										<h4>Learning &amp; Games</h4>
-										<ul>
-											<li><a href="#">Catch the Bullet</a></li>
-											<li><a href="#">Snoopydoo</a></li>
-											<li><a href="#">Fallen Angel</a></li>
-											<li><a href="#">Sui Maker</a></li>
-											<li><a href="#">Wave Master</a></li>
-											<li><a href="#">Golf Pro</a></li>
-										</ul>
-										<h4>Utilities</h4>
-										<ul>
-											<li><a href="#">Gadget Finder</a></li>
-											<li><a href="#">Green Tree Express</a></li>
-										</ul>
-									</div>
-									<div>
-										<h4>Entertainment</h4>
-										<ul>
-											<li><a href="#">Gadget Finder</a></li>
-											<li><a href="#">Green Tree Express</a></li>
-											<li><a href="#">Green Tree Pro</a></li>
-											<li><a href="#">Holy Cannoli</a></li>
-											<li><a href="#">Wobbler 3.0</a></li>
-											<li><a href="#">Coolkid</a></li>
-										</ul>
-									</div>
-								</div><!-- /cbp-hrsub-inner -->
-							</div><!-- /cbp-hrsub -->
-						</li>
-					</ul>
-				</nav>
-			</div>
+		<div class="large-12  offset2 columns">	    
+			<ul class="navig">	
+				<% case @var%>
+				<% when "Forum"%>
+					<li class="isactive">Forums</li>&nspb;
+					<li class="notactive"><%=link_to "Articles", articles_path%></li>&nspb;
+					<li class="notactive"><%=link_to "Blogs", blogs_path%></li>&nspb;
+					<li class="notactive"><%=link_to "Dashboard", dashboard_index_path%></li>&nspb;
+					<li class="notactive"><%=link_to "Videos", videos_path%></li>&nspb;
+				<% when "Blog"%>
+					<li class="isactive">Blogs</li>&nspb;
+					<li class="notactive"><%=link_to "Articles", articles_path%></li>&nspb;
+					<li class="notactive"><%=link_to "Dashboard", dashboard_index_path%></li>&nspb;
+					<li class="notactive"><%= link_to "Forums", forums_root_path%></li>&nspb;
+					<li class="notactive"><%=link_to "Videos", videos_path%></li>&nspb;
+				<% when "Articles"%>
+					<li class="isactive">Articles</li>&nspb;
+					<li class="notactive"><%=link_to "Blogs", blogs_path%></li>&nspb;
+					<li class="notactive"><%=link_to "Dashboard", dashboard_index_path%></li>&nspb;
+					<li class="notactive"><%= link_to "Forums", forums_root_path%></li>&nspb;
+					<li class="notactive"><%=link_to "Videos", videos_path%></li>&nspb;
+				<% when "Videos"%>
+					<li class="isactive">Videos</li>&nspb;
+					<li class="notactive"><%=link_to "Articles", articles_path%></li>&nspb;
+					<li class="notactive"><%=link_to "Blogs", blogs_path%></li>&nspb;
+					<li class="notactive"><%=link_to "Dashboard", dashboard_index_path%></li>&nspb;
+					<li class="notactive"><%= link_to "Forums", forums_root_path%></li>&nspb;
+				<% else%>
+					<li class="notactive"><%=link_to "Articles", articles_path%></li>&nspb;
+					<li class="notactive"><%=link_to "Blogs", blogs_path%></li>&nspb;
+					<li class="notactive"><%=link_to "Dashboard", dashboard_index_path%></li>&nspb;
+					<li class="notactive"><%= link_to "Forums", forums_root_path%></li>&nspb;
+					<li class="notactive"><%=link_to "Videos", videos_path%></li>&nspb;
+				<% end%>
+			</ul>
 		</div>
 	
 		<%= yield %>

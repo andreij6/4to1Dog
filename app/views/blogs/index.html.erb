@@ -1,55 +1,56 @@
+<% @var = "Blog"%>
 <div class="row">
-
-    <!-- Main Blog Content -->
-    <div class="large-9 columns" role="content">
+<!-- Main Blog Content -->
+    <div class="large-9 columns">
+    	<hr />
  		<% @blogs.each do |blog| %>
-      <article>
- 
-        <h3><%= blog.title %></h3>
-        <h6>Written by <%=link_to blog.user.profile_name, "#"%> <%= (blog.created_at).strftime("%b %-d %Y") %></h6>
- 
-        <div class="row">
-          <div class="large-12 columns">
-            <p><%= dat_markdown(blog.body.truncate(750)) %></p>
-      </article>
-      <!-- try to make a helper method so you dont have to use raw -->
-      		Tags: <%= raw blog.tag_list.map { |t|  link_to t, tag_path(t)}.join(', ')%>
-      		<span class='right'>
-      		Comment count (<%= blog.comments.count %>)
-      		 
- 			<%= link_to 'Read More..', blog %>
- 			<% if current_user == blog.user %>
-	    		<%= link_to 'Edit', edit_blog_path(blog) %>
-	    		<%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
-	    	<% end %>
-      		</span>
-      <hr />
- 
-      <article>
- 		<% end %>
+ 		<%= link_to blog do %>
+ 		<article>
+			<h3 class="optima">
+				<%= blog.title.upcase %>
+			</h3>
+			<p class="circle large-3 columns">
+				<span class="numbars"><%= (blog.created_at).strftime("%-d") %> </span><br />
+				<%= (blog.created_at).strftime("%b").downcase %> <br />
+			</p>
+			<p>
+				<span class="firstcharacter"><%=  blog.body[0].upcase%></span>
+				<% blogFTminus = blog.body[1..-1]%>
+				<%= dat_markdown(blogFTminus.truncate(750)) %> <br />
+				<span class='user'>by <%=blog.user.profile_name.upcase%> </span>
+			</p>
+<!-- try to make a helper method so you dont have to use raw -->
+		 <!--<span class="taglist"><%= raw blog.tag_list.map { |t|  link_to t, tag_path(t)}.join(', ')%></span>-->
+		<span class='right'>
+			Comment Count (<%= blog.comments.count %> )
+			<% if current_user == blog.user %>
+				<%= link_to 'Edit', edit_blog_path(blog) %>
+				<%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+			<% end %>
+		</span>
+		</article>
+		<% end %>
+		<hr />
+		
+	 	<% end %>
+	 	<%= link_to new_blog_path do %>
+	 	<div class="buttoned">
+	 		New Blog
+	 	</div>
+	 	<% end %>
     </div>
- 
-    <!-- End Main Content -->
- 
- 
-    <!-- Sidebar -->
- 
+<!-- End Main Content -->
+<!-- Sidebar -->
     <aside class="large-3 columns">
- 		<%= link_to "New Blog", new_blog_path, class: "button"%>
-      <h5>Tags</h5>
-      <div id = "tag_cloud">
-        <% tag_cloud Blog.tag_counts, %[s m l] do | tag, css_class| %>
-        	<p><%= link_to tag.name, tag_path(tag.name), class: css_class %></p>
-        <% end %>
-      </div>
- 
-      <div class="panel">
-        <h5>Featured</h5>
-        <p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow.</p>
-        <a href="#">Read More &rarr;</a>
-      </div>
- 
+ 		
+		<h3 id="categori">
+			Categories
+		</h5>
+		<div id = "tag_cloud">
+			<% tag_cloud Blog.tag_counts, %[s m l] do | tag, css_class| %>
+			<%= link_to tag.name, tag_path(tag.name), class: css_class %> <br /> 
+			<% end %>
+		</div>
     </aside>
- 	
-    <!-- End Sidebar -->
-  </div>
+<!-- End Sidebar -->
+</div>

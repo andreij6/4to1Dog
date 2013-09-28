@@ -7,6 +7,7 @@ class TopicsController < ApplicationController
   end
   
   def new
+    
     @forum = Forum.find(params[:forum_id])
     @topic = Topic.new
   end

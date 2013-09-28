@@ -22,7 +22,55 @@
 
 p {color:#888888;}
 
-.blackbody {
-	background: black;
+.blogged {
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  color: red;
 }
 
+
+
+li a {color: white;}
+li a:hover {color:#A53130}
+
+.navig li {
+	display: inline;
+}
+.isactive {
+	font-size: 72px;
+	color: #A53130;
+	font-family: "Avant Garde", "Avantgarde", "Century Gothic", "CenturyGothic", "AppleGothic", "sans-serif"
+
+}
+.notactive {
+	font-size: 24px;
+	color: white;
+	font-family: "Avant Garde", "Avantgarde", "Century Gothic", "CenturyGothic", "AppleGothic", "sans-serif"
+}
+
+
+.catego {
+	height: 270px;
+	background: lightgray; 
+	margin-bottom: 15px;
+}
+
+.catego2 {
+	height: 190px;
+	background: lightgray; 
+}
+
+.sidecat {
+	height: 118px;
+	background: lightgray; 
+}
+
+.btn {
+	width: 125px;
+	height: 50px
+	border: 1px solid white;
+	color: white;
+	font-weight: bold;
+	background: none;
+	font-family: "Avant Garde", "Avantgarde", "Century Gothic", "CenturyGothic", "AppleGothic", "sans-serif"
+	
+}

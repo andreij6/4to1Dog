@@ -2,23 +2,26 @@
 	<div class="right controls"><%= link_to "Back to Forum List", forums_path %></div>
 	<div class="module">
 	  <div class="module_header">
-	    <h2><%= @forum.title %></h2>
-	    <span><%= link_to "New Topic", new_forum_topic_path(@forum), class: "button" %></span>
-	    <hr >
-	    <span class="controls right">
-	      <%= link_to "Edit Forum", edit_forum_path(@forum) %><br/><br/>
-	      <%= link_to "Delete Forum", forum_path(@forum), :confirm => "Are you sure you want to delete this forum?", :method => :delete %>
-	    </span>
+	    <h2 class="optima"><%= @forum.title.upcase %><small> | forum</small></h2>
+	    <%= link_to new_forum_topic_path(@forum) do %>
+	 	<div class="buttoned">
+	 		New Topic
+	 	</div>
+	 	<% end %>
+	    
+	    
 	  </div>
-	  <div>
+	  <br />
+	  <div class= "large-12 columns">
 	    <table>
 	      <tr class="smaller">
-	        <th width="200">Topic</th>
-	        <th width="150">Replies</th>
-	        <th width="150">Views</th>
-	        <th width="200">Last Post</th>
+	        <th width="300">Topic</th>
+	        <th width="250">Replies</th>
+	        <th width="250">Views</th>
+	        <th width="300">Last Post</th>
 	      </tr>
 	      <% @forum.topics.each do |topic| %>
+	      
 	      <tr>
 	        <td class="icon"><strong><%= link_to topic.title, topic_path(topic) %></strong><br />created by <%= topic.user.profile_name %></td>
 	        <td class="description">
@@ -31,8 +34,15 @@
 	          by <%= topic.posts.last.user.profile_name %>
 	        </td>
 	      </tr>
+	     
 	      <% end %>
 	    </table>
+	    <!-- add permissions to see these controls -->
+	    <span class="controls right">
+	      <%= link_to "Edit Forum", edit_forum_path(@forum) %><br/><br/>
+	      <%= link_to "Delete Forum", forum_path(@forum), :confirm => "Are you sure you want to delete this forum?", :method => :delete %>
+	    </span>
+	    <!-- here   -->
 	  </div>
 	</div>
 </div>

@@ -4,9 +4,121 @@
 
 
 #tag_cloud {
-  .s {font-size: 0.8em;}
-  .m { font-size: 1.2em; }
-  .l { font-size: 1.8em; }
+  text-align:right;
+  .s {
+    font-size: 0.8em;
+    color: lightgrey;
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+
+  }
+  .s:hover {
+  color: #A53130;
+  font-weight:bold;
+}
+  .m { 
+    font-size: 1.2em; 
+    color: lightgrey;
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+
+  }
+  .m:hover {
+  color: #A53130;
+  font-weight:bold;
+}
+  .l { 
+    font-size: 1.8em;
+    color: lightgrey;
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+   }
+   .l:hover {
+  color: #A53130;
+  font-weight:bold;
+}
 }
 
+
+
+.optima {
+  font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  color: lightgrey;
+  font-size: 2.5em;
+}
+
+.circle {
+  border-radius: 50%;
+  background: #888;
+  width: 50px;
+  height: 50px;
+  text-align:center;
+  color: white;
+  line-height:90%;
+  padding-top: 8px;
+  margin-right: 15px;
+}
+
+.numbars {
+  font-size: 1.8em;
+  font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+}
+
+.firstcharacter { 
+  float: left; 
+  color: #A53130; 
+  font-size: 75px; 
+  line-height: 60px; 
+  padding-top: 4px; 
+  padding-right: 8px; 
+  padding-left: 3px; 
+  font-family: Georgia; 
+  }
+
+.user {
+  color: white;
+}
+
+#categori {
+  font-family: "Andale Mono", AndaleMono, monospace;
+  color: white;
+  text-align: right;
+}
+
+.right {
+  color: white;
+}
+
+
+
+a .buttoned  {
+    font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+    color: #A53130;
+    text-align: center;
+    border:3px solid #A53130;
+    border-radius: 2px;
+    line-height: 30px;
+    height: 40px;
+    width: 120px;
+}
+
+a .buttoned:hover {
+    border:3px solid #202020;
+    font-weight: bold;
+    color: #202020;
+    background: #A53130;
+}
+a .buttoned2  {
+    font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+    color: #A53130;
+    text-align: center;
+    border:3px solid #A53130;
+    border-radius: 2px;
+    line-height: 30px;
+    
+}
+
+a .buttoned2:hover {
+    border:3px solid #202020;
+    font-weight: bold;
+    color: #202020;
+    background: #A53130;
+}
 

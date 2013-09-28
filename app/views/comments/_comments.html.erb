@@ -1,8 +1,9 @@
 <div id="comments">
 	<% @comments.each do |comment| %>
 		<div class="comment">
-			<span class='left'><%= comment.user.profile_name + ' says:' %></span><br/>
+			
 			<%= simple_format comment.content %>
+			<span class='left'><%= comment.user.profile_name %></span><br/><hr />
 		</div>
 	<%end%>
 </div>

@@ -7,7 +7,7 @@ class BlogsController < ApplicationController
     if params[:tag]
       @blogs = Blog.tagged_with(params[:tag])#.page(params[:page]).per_page(5)
     else
-      @blogs = Blog.all
+      @blogs = Blog.order('created_at desc').all
     end
     respond_to do |format|
       format.html # index.html.erb

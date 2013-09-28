@@ -1,25 +1,56 @@
-<h1>Listing blogs</h1>
+<% @var = "Blog"%>
+<div class="row">
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Body</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @blogs.each do |blog| %>
-  <tr>
-    <td><%= blog.title %></td>
-    <td><%= blog.body %></td>
-    <td><%= link_to 'Show', blog %></td>
-    <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-    <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Blog', new_blog_path %>
+    <!-- Main Blog Content -->
+    <div class="large-9 columns" role="content">
+ 		<% @blogs.each do |blog| %>
+      <article>
+ 
+        <h3><%= blog.title %></h3>
+        <h6>Written by <%=link_to blog.user.profile_name, "#"%> <%= (blog.created_at).strftime("%b %-d %Y") %></h6>
+ 
+        <div class="row">
+          <div class="large-12 columns">
+            <p><%= dat_markdown(blog.body.truncate(750)) %></p>
+      </article>
+      <!-- try to make a helper method so you dont have to use raw -->
+      		Tags: <%= raw blog.tag_list.map { |t|  link_to t, tag_path(t)}.join(', ')%>
+      		<span class='right'>
+      		Comment count (<%= blog.comments.count %>)
+      		 
+ 			<%= link_to 'Read More..', blog %>
+ 			<% if current_user == blog.user %>
+	    		<%= link_to 'Edit', edit_blog_path(blog) %>
+	    		<%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+	    	<% end %>
+      		</span>
+      <hr />
+ 
+      <article>
+ 		<% end %>
+    </div>
+ 
+    <!-- End Main Content -->
+ 
+ 
+    <!-- Sidebar -->
+ 
+    <aside class="large-3 columns">
+ 		<%= link_to "New Blog", new_blog_path, class: "button"%>
+      <h5>Tags</h5>
+      <div id = "tag_cloud">
+        <% tag_cloud Blog.tag_counts, %[s m l] do | tag, css_class| %>
+        	<p><%= link_to tag.name, tag_path(tag.name), class: css_class %></p>
+        <% end %>
+      </div>
+ 
+      <div class="panel">
+        <h5>Featured</h5>
+        <p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow.</p>
+        <a href="#">Read More &rarr;</a>
+      </div>
+ 
+    </aside>
+ 	
+    <!-- End Sidebar -->
+  </div>

@@ -27,7 +27,7 @@ h2 {
   font-family: "Corbel", Times, serif;
 }
 p {
-  color: #1A1A1A;
+  color: white;
 }
 
 .row {
@@ -42,35 +42,29 @@ p {
   margin: 0px 0px 0px 0px;
 }
 
-h1 span {
+#spat {
   font-size: 24px;
   display: none;
-  color: #A1A5A5; 
+  color: #000; 
 }
 
-h1 span a {
-  color: #A1A5A5;
+#spat2 {
+  font-size: 24px;
+  display: none;
+  color: #000; 
 }
 
-h1 span a:hover {
+#spat3 {
+  font-size: 24px;
+  display: none;
+  color: #000; 
+}
+
+span a {
+  color: #000;
+}
+
+span a:hover {
   color: #A53130;
-}
-#section1 {
-  display: none;
-}
-#section2 {
-  display: none;
-}
-#section3 {
-  display: none;
-}
-#section4 {
-  display: none;
-}
-#section5 {
-  display: none;
-}
-#section6 {
-  display: none;
 }
 
