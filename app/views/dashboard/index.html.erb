@@ -76,6 +76,7 @@
 		</div>
 		<div class="large-6 columns bottom" id='bright'>
 			<h2 class="txt">Latest Blog</h2>
+				<% if Blog.size > 0%>
 				<% blogg = Blog.last.body %>
 				<p>
 				<span class="firstcharacter">
@@ -84,7 +85,9 @@
 				<%= Blog.last.body[1..-1].truncate(400)%>
 				</p>
 				<p class="dash_author"><%= Blog.last.user.profile_name.downcase %></p>
-				
+				<% else%>
+				<p>Latest Blogs will go here</p>
+				<% end %>
 		</div>
 	</div>
 	
