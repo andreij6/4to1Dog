@@ -1,31 +1,52 @@
 <% title "Articles"%>
 <% @var = "Articles"%>
-<h1>Listing articles</h1>
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Body</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @articles.each do |article| %>
-  <tr>
-    <td><%= article.title %></td>
-    <td><%= article.body %></td>
-    <td><%= link_to 'Show', article %></td>
-    <td><%= link_to 'Edit', edit_article_path(article) %></td>
-    <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-<div id = "tag_cloud">
-        <% tag_cloud Article.tag_counts, %[s m l] do | tag, css_class| %>
-        	<p><%= link_to tag.name, tag_path(tag.name), class: css_class %></p>
-        <% end %>
-      </div>
-<br />
-
-<%= link_to 'New Article', new_article_path %>
+<div class="row">
+	<br />
+	<h1 class="optima">4to1Dog Poker Articles, Tutorials, etc.</h1>
+	<% if current_user.role == "admin"%>
+	<%= link_to new_article_path do %>
+		 	<div class="buttoned">
+		 		New Article
+		 	</div>
+	 		<% end %>
+	<% end %>
+	<div class="large-9 columns">
+		<% @articles.each do |article| %>
+		  	
+		 <div class="arttalk"> 	
+		    <%= link_to article do %>
+		    	<div class="large-12 columns">
+		    		<p class="circle large-3 columns">
+						<span class="numbars"><%= (article.created_at).strftime("%-d") %> </span><br />
+						<%= (article.created_at).strftime("%b").downcase %> <br />
+					</p>
+		    		<h3 class="firstcharacter"><%= article.title %></h3>
+		    	</div>
+		    <% end %>
+		    
+		    
+			<p><%= dat_markdown(article.body.truncate(600)) %></p>
+			
+		    <span class='right'>
+		    	Comment Count (<%= article.comments.count %> )
+		    	<% if current_user == article.user %>
+				    <%= link_to 'Delete', article, method: :delete, data: { confirm: 'Are you sure?' } %>
+			    <% end %>
+		 	</span>
+		 	
+		</div>
+		
+		<% end %>
+			
+	</div>
+			<h3 id="categori">
+				Titles
+			</h5>
+			<div id= "tag_cloud">
+		        <% @articles.each do |article|%>
+		        <p><%= article.title%></p>
+		        <% end %>
+	      	</div>
+	<br />
+	
+</div>

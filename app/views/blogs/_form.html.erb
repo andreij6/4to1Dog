@@ -1,13 +1,30 @@
 <%= simple_form_for(@blog) do |f| %>
   <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :tag_list %>
-    <%= f.input :body %>
-  </div>
-
-  <div class="form-actions">
+<div class="row">
+  	<div class="large-6 columns">
+  	<h1 class="optima">
+  		Title
+  	</h1>
+    <%= f.input :title, :label => false  %>
+    </div>
+    <div class="large-6 columns">
+    <h1 class="optima">
+  		Taglist
+  		<small>
+  			seperate by commas
+  		</small>
+  	</h1>
+    <%= f.input :tag_list, :label => false  %>
+    </div>
+    <h1 class="optima">
+  		Blog Post
+  		<small>
+  			Recommended copy and paste from Word or another word processor
+  		</small>
+  	</h1>
+    <%= f.input :body, :label => false  %>
+  
     <%= f.button :submit %>
-  </div>
+  
 <% end %>
+</div>

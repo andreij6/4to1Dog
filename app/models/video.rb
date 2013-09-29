@@ -9,4 +9,6 @@ class Video < ActiveRecord::Base
   validates :code,  :presence => true
   validates :title,  :presence => true
   
+  
+  
 end

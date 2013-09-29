@@ -29,7 +29,7 @@
 					 		New Topic
 					 	</div>
 		          	<% end %>
-					<% forum.topics.each do |topic|%>
+					<% forum.topics.limit(3).each do |topic|%>
 		          	<% if forum.topics.size > 0 %>
 			          		<p>
 			          			<%= link_to topic.title, topic_path( topic) %><small> hits: <%= topic.hits%></small><br/>
@@ -39,7 +39,9 @@
 			          		
 		          	<% end %>
 		          	<% end %>
-		          	
+		          	<% if forum.topics.size > 3%>
+		          		<p class="litt"><%=link_to "Complete list of topics", forum_path(forum)%></p>
+					<% end %>
 				</div>
 				<% end %>
 				</div>

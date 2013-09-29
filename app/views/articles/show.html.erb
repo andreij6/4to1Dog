@@ -1,18 +1,25 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Title:</b>
-  <%= @article.title %>
-</p>
-
-<p>
-  <b>Body:</b>
-  <%= @article.body %>
-</p>
-<h2> Comments</h2>
-	<%= render "comments/comments"%>
-	<%= render "comments/form" %>
-
-
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+<div class="row">
+	<p id="notice">
+	<%= notice %>
+	</p>
+	<div class="large-10 large-offset-1 columns">
+		 <h3 class="optima">
+			<%= @article.title %>
+		 </h3>
+		<div class="blogged">
+			<%= dat_markdown(@article.body) %>
+		</div>
+		<span class='right'><%= @article.user.profile_name.downcase %><br />
+			
+		</span>
+	</div>
+		
+			<h2 class="optima">
+				Comments
+			</h2>
+			
+				<%= render "comments/comments"%>
+				<%= render "comments/form" %>
+		
+	
+</div>

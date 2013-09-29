@@ -1,22 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @video.title %>
-</p>
 
-<p>
-  <b>Code:</b>
-  <%= @video.code.html_safe %>
-</p>
 
-<p>
-  <b>Series:</b>
-  <%= @video.series %>
-</p>
+<div class="row">
+	<p class="categoryTitle"><%= @video.series %><small><%= @video.title %></small></p>
+  <div class="large-10 large-offset-1 columns">
+  	<%= @video.code.html_safe %>
+  </div>
+
+
+
 <h2> Comments</h2>
 	<%= render "comments/comments"%>
 	<%= render "comments/form" %>
 
-<%= link_to 'Edit', edit_video_path(@video) %> |
-<%= link_to 'Back', videos_path %>
+
+</div>

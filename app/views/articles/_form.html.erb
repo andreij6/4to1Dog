@@ -1,13 +1,24 @@
 <%= simple_form_for(@article) do |f| %>
   <%= f.error_notification %>
+<div class="row">
+  	
+  	<h1 class="optima">
+  		Title
+  	</h1>
+    <%= f.input :title, :label => false %>
+    
+    
+    <h1 class="optima">
+  		Article
+  		<small>
+  			Recommended copy and paste from Word or another word processor
+  		</small>
+  	</h1>
+    <%= f.input :body, :rows => 50, :label => false %>
+  
 
-  <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :tag_list %>
-    <%= f.input :body %>
-  </div>
-
-  <div class="form-actions">
+  
     <%= f.button :submit %>
-  </div>
+  
 <% end %>
+</div>

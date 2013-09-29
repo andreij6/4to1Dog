@@ -1,33 +1,32 @@
 <% title "Videos"%>
 <% @var = "Videos"%>
-<h1>Listing videos</h1>
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Code</th>
-    <th>Series</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-<% @videos.each do |video| %>
-  <tr>
-    <td><%= video.title %></td>
-    <td><%= video.code %></td>
-    <td><%= video.series %></td>
-    <td><%= link_to 'Show', video %></td>
-    <td><%= link_to 'Edit', edit_video_path(video) %></td>
-    <td><%= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-<div id = "tag_cloud">
-        <% tag_cloud Video.tag_counts, %[s m l] do | tag, css_class| %>
-        	<p><%= link_to tag.name, tag_path(tag.name), class: css_class %></p>
-        <% end %>
-      </div>
-<br />
+<div class="row">
+<h1 class="optima"> Training Videos</h1>
 
-<%= link_to 'New Video', new_video_path %>
+<% if current_user.role == "admin"%>
+	<%= link_to new_video_path do %>
+		 	<div class="buttoned">
+		 		New Video
+		 	</div>
+	 		<% end %>
+<% end %>
+<p class="categoryTitle">Series<small>Title</small></p>
+<% @videos.each do |video| %>
+  	<%= link_to video  do%>
+  	<article>
+  		<p class="circle large-3 columns">
+				<span class="numbars"><%= (video.created_at).strftime("%-d") %> </span><br />
+				<%= (video.created_at).strftime("%b").downcase %> <br />
+			</p>
+    <p class="categoryTitle"><%= video.series %><small><%= video.title %></small></p>
+    
+    
+    <p>Comments: <%= video.comments.count %></p> 
+  	</article>
+  	<% end %>
+<% end %>
+
+
+</div>
 
 

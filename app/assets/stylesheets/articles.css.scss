@@ -1,3 +1,35 @@
 // Place all the styles related to the articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.arttalk {
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.arttalk:hover {
+  background: #222;
+}
+
+.arttalk p {
+  font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.2em;
+}
+
+
+
+.arttalk h3:hover {
+  text-decoration: none;
+  color: lightgrey;
+}
+
+textarea {
+  border: 2px solid #F7F7F7;
+  background: #1A1A1A;
+}
+
+.dater {
+  background: #CCC;
+}

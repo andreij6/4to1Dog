@@ -1,11 +1,19 @@
 <%= simple_form_for(@video) do |f| %>
   <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :tag_list %>
-    <%= f.input :code %>
-    <%= f.input :series %>
+<div class="row">
+  	
+  	<h1 class="optima">
+  		Title
+  	</h1>
+    <%= f.input :title, :label => false %>
+    <h1 class="optima">
+  		Video HTML
+  	</h1>
+    <%= f.input :code, :label => false%>
+    <h1 class="optima">
+  		Series
+  	</h1>
+    <%= f.input :series, :label => false  %>
   </div>
 
   <div class="form-actions">
