@@ -49,6 +49,15 @@
 					<li class="notactive"><%= link_to "Forums", forums_root_path%></li>&nspb;
 					<li class="notactive"><%=link_to "Videos", videos_path%></li>&nspb;
 				<% end%>
+				<% if user_signed_in? %>
+					<li class="notactive"><%= link_to "Sign Out", logout_path %></li>
+					<% else %>
+			        <li class="notactive">
+			          <%= link_to "Sign Up", register_path %>
+			        </li>&nspb;
+			        
+			        <li class="notactive"><%= link_to "Sign In", login_path %></li>
+			        <%end%>
 			</ul>
 		</div>
 	
