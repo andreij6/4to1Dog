@@ -48,6 +48,11 @@
 		</div><% end %><br />
 		<div class="large-6 columns bottom" id='bleft'>
 			<h1 class="dash_statusHead">Latest Statuses</h1>
+			<%= link_to new_status_path do %>
+		 	<div class="buttoned">
+		 		Post Status
+		 	</div>
+	 		<% end %>
 			<p class="dash_status">
 				<span><%= Status.last.user.profile_name.downcase %></span>
 				"<%= Status.last.content %>"
@@ -63,16 +68,13 @@
 				"<%= Status.all[-3].content %>"
 				
 			</p>
-			<p class="dash_status">
-				<span><%= Status.all[-4].user.profile_name.downcase %></span>
-				"<%= Status.all[-4].content %>"
-				
-			</p>
-			<%= link_to new_status_path do %>
+			
+			<%= link_to statuses_path do %>
 		 	<div class="buttoned">
-		 		New Status
+		 		All Statuses
 		 	</div>
 	 		<% end %>
+	 		
 		</div>
 		<div class="large-6 columns bottom" id='bright'>
 			<h2 class="txt">Latest Blog</h2>

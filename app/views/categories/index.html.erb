@@ -5,11 +5,13 @@
 		
 		<div class="large-12 columns" id="forumid">
 			<hr /><br />
+			<% if current_user.role == "admin"%>
 			<%= link_to new_forum_path do %>
 		 	<div class="buttoned">
 		 		New Forum
 		 	</div>
 	 		<% end %>
+	 		<% end%>
 	 		<br />
 			<% @categories.each do |category| %>
 	      		<p class="categoryTitle"><%= category.title.upcase + " | Category"%>

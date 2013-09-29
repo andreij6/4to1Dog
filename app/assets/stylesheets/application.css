@@ -74,3 +74,11 @@ li a:hover {color:#A53130}
 	font-family: "Avant Garde", "Avantgarde", "Century Gothic", "CenturyGothic", "AppleGothic", "sans-serif"
 	
 }
+
+small a {
+	color: #999999;
+}
+
+small a:hover {
+	color: #E83014; 
+}

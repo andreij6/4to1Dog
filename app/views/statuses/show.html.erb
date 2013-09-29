@@ -2,13 +2,13 @@
   <div class="span8 offset2">
     <%= page_header do %>
       <h1>
+        <p class="categoryTitle"><small><%= @status.user.profile_name %></small> said:</p>
         
-        <%= @status.user.full_name %>
         <small><%= time_ago_in_words(@status.created_at) + " ago" %></small>
       </h1>
     <% end %>
 
-    <p>
+    <p class="optima">
       <%= @status.content %>
     </p>
 
