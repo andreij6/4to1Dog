@@ -1,5 +1,24 @@
-
-	<div class="row">
+<%   about = "4to1dog.com is an online poker community that welcomes players of all skill level and ability. We offer a smaller, more tight-nit type of atmosphere than some larger poker communities. Our site is a great place to follow the latest in poker news, discuss all things poker and non-poker related in our forums, and in general improve your game. Coaching/training is available through our site as well, although you do not need to receive coaching in order to be a member of our community."%>
+<% coaching = ""%>
+<ul class="navig">
+				<% if user_signed_in?%>
+					<li class="notactive"><%=link_to "Articles", articles_path%></li>&nspb;
+					<li class="notactive"><%=link_to "Blogs", blogs_path%></li>&nspb;
+					<li class="notactive"><%=link_to "Dashboard", dashboard_index_path%></li>&nspb;
+					<li class="notactive"><%= link_to "Forums", forums_root_path%></li>&nspb;
+					<li class="notactive"><%=link_to "Videos", videos_path%></li>&nspb;
+					<li class="notactive"><%= link_to "Sign Out", logout_path %></li>
+					<% else %>
+					<li class="notactive"><%=link_to "Articles", '#'%></li>&nspb;
+					<li class="notactive"><%=link_to "Blogs", '#'%></li>&nspb;
+					<li class="notactive"><%=link_to "Dashboard", '#'%></li>&nspb;
+					<li class="notactive"><%= link_to "Forums", '#'%></li>&nspb;
+					<li class="notactive"><%=link_to "Videos", '#'%></li>&nspb;
+			        <li class="notactive"><%= link_to "Sign Up", register_path %></li>&nspb;
+			        <li class="notactive"><%= link_to "Sign In", login_path %></li>
+			        <%end%>
+			</ul>
+	<div class="row"><br /><br /><br />
 		<div class="large-7 columns">
 			<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 				 width="512.535px" height="397.35px" viewBox="0 0 512.535 397.35" enable-background="new 0 0 512.535 397.35"
@@ -331,21 +350,49 @@
 		
 		<div class="large-8 large-offset-4 columns">
 			<div>
-				<span id="spat"> <%= link_to 'About', '#', :id => 'About' %> / <%= link_to 'Contact', '#', :id => 'Contact' %>  / <%= link_to 'Store', '#', :id => 'store' %> </span>
+				<p id="spat">
+					<%= about %>
+				</p>
 			</div>
 			<div>
-				<span id="spat2"> <%= link_to 'Become A Student', '#', :id => 'bas' %> </span>
-			</div>
-			<div>
-				<span id="spat3"> <%= link_to 'Discussion Forums', '#', :id => 'discuss' %> / <%= link_to 'Sponsored Tourneys', '#', :id => 'sponsored' %></span>
-			</div>
-			<p>
-				adlfjkalsdjf
-			</p>
-		</div>
-		<div class='large-12 large-offset-7 columns'>
-			<h3 id='log'><%= link_to "Sign In", login_path%></h3>
-			<%= link_to 'Dashboard', dashboard_index_path%>
-		</div>
-	</div> 
+				<p id="spat2"> 
+					In today’s poker world, coaching can be very expensive.  This is especially true when you consider the fact that many of the players receiving the coaching are low/mid stakes players.  While the coaching these players receive may be of quality, it is often times not worth the $50, $100, $200, or even $500 hourly rate that many coaches are charging.
 
+					So… that’s where we come in.  Our take on coaching is a bit different.  Rather than charging insane hourly rates, we offer coaching services in exchange for a percentage of the student’s monthly profit.  This type of setup offers two major advantages to the student.
+					
+					The student doesn’t have to worry about major out of pocket expenses, which often cut into your poker playing bankroll.
+					Our system is designed to make our coaches work harder to make you better.  After all, if you don’t make a montly profit, then we don’t make money for our services.
+					Because of the way our coaching system is designed, we obviously don’t accept just anyone.  There is an application for prospective students that must be completed before you will be considered for coaching.
+					
+					 
+					
+					Coaching services may include any or all of the following….
+					
+					-  1 on 1 coaching sessions with 4to1dog, or a coach appointed by 4to1dog
+					
+					-  full access to our enormous video library
+					
+					-  access to the student/coach Skype group
+					
+					-  hand history reviews
+					
+					-  poker software tutorials and explanations
+					
+					-  turtorials on how to use and apply hand ranges
+					
+					-  ICM specific lessons for final table play
+					
+					 
+					
+					You should know up front that our coaching services are not designed for the casual, recreational player.  We are in search of prospective students with a tremendous work ethic, that are looking to take their game to the next level.  If this sounds like you, then feel free to contact 4to1dog via the contact form on this site.  Be sure to mention in the comment section that you are inquiring about coaching.  A member of our staff will be in contact with you regarding the application and specific contract information.
+				</p>
+			</div>
+			<div>
+				<p id="spat3"> 
+					Don't Want Coaching just yet?  Sign up anyway to chat with fellow poker players and become part of the family. 
+				</p>
+			</div>
+		</div>
+		
+	</div> 
+	

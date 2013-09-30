@@ -82,3 +82,18 @@ small a {
 small a:hover {
 	color: #E83014; 
 }
+.foot {
+	border-top: 2px solid #000;
+	border-left: 2px solid #000;
+	border-radius: 15px 0px 0px 0px; 
+}
+.foot p {
+	color: #444;
+	font-size: 16px;
+	font-weight: bold;
+}
+.foot a {
+	color:#A53130;
+	font-size: 12px;
+	font-weight: normal;
+}

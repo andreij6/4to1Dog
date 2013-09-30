@@ -35,7 +35,7 @@ Devise.setup do |config|
   # Configure which authentication keys should be case-insensitive.
   # These keys will be downcased upon creating or modifying a user and when used
   # to authenticate or find a user. Default is :email.
-  config.case_insensitive_keys = [ :email ]
+  #config.case_insensitive_keys = [ :email ]
 
   # Configure which authentication keys should have whitespace stripped.
   # These keys will have whitespace before and after removed upon creating or
@@ -229,6 +229,6 @@ Devise.setup do |config|
   # When using omniauth, Devise cannot automatically set Omniauth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = "/my_engine/users/auth"
-  config.secret_key = '3b342599637904557d815ada34d6f733abc668d23a62c9dc9264924ca90b924485536f30128b301b738fab5f9744a37c77241807a8044e9f73642f279f89d44a'
+  #config.secret_key = '3b342599637904557d815ada34d6f733abc668d23a62c9dc9264924ca90b924485536f30128b301b738fab5f9744a37c77241807a8044e9f73642f279f89d44a'
   
 end

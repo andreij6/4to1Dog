@@ -7,8 +7,8 @@ $(document).ready ->
     $("#1").css "color", "#A53130"
   $('#1').click ->
     $(this).css "font-size", "72px"
-    $('#2').css "font-size", "36px"
-    $('#3').css "font-size", "36px"
+    $('#2').css "font-size", "14px"
+    $('#3').css "font-size", "14px"
     $('#spat').css "display", "inline"
     $('#spat2').css "display", "none"
     $('#spat3').css "display", "none"
@@ -20,8 +20,8 @@ $(document).ready ->
     $("#2").css "color", "#A53130"
   $('#2').click ->
     $(this).css "font-size", "72px"
-    $('#1').css "font-size", "36px"
-    $('#3').css "font-size", "36px"
+    $('#1').css "font-size", "14px"
+    $('#3').css "font-size", "14px"
     $('#spat').css "display", "none"
     $('#spat2').css "display", "inline"
     $('#spat3').css "display", "none"
@@ -33,8 +33,8 @@ $(document).ready ->
     $("#3").css "color", "#A53130"
   $('#3').click ->
     $(this).css "font-size", "72px"
-    $('#2').css "font-size", "36px"
-    $('#1').css "font-size", "36px"
+    $('#2').css "font-size", "14px"
+    $('#1').css "font-size", "14px"
     $('#spat').css "display", "none"
     $('#spat2').css "display", "none"
     $('#spat3').css "display", "inline"
