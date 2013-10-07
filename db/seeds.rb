@@ -17,7 +17,7 @@ User.create({
   password_confirmation: DEFAULT_INSECURE_PASSWORD
 })
 Category.create({
-  title:  "Private",
+  title: "Private",
   state: true,
   position: 0,
   category_id: 1

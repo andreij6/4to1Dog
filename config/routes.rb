@@ -24,9 +24,10 @@ Treebook::Application.routes.draw do
   get 'tags/:tag', to: 'videos#index', as: :tag
   get 'tags/:tag', to: 'articles#index', as: :tag
   
-
+  
   root to: "welcome#index"
-
+  
+  
   resources :blogs do
     resources :comments
   end

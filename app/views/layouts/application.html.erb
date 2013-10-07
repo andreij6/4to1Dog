@@ -43,12 +43,15 @@
 					<li class="notactive"><%=link_to "Blogs", blogs_path%></li>&nspb;
 					<li class="notactive"><%=link_to "Dashboard", dashboard_index_path%></li>&nspb;
 					<li class="notactive"><%= link_to "Forums", forums_root_path%></li>&nspb;
+				<% when "signinup"%>
+					
 				<% else%>
 					<li class="notactive"><%=link_to "Articles", articles_path%></li>&nspb;
 					<li class="notactive"><%=link_to "Blogs", blogs_path%></li>&nspb;
 					<li class="notactive"><%=link_to "Dashboard", dashboard_index_path%></li>&nspb;
 					<li class="notactive"><%= link_to "Forums", forums_root_path%></li>&nspb;
 					<li class="notactive"><%=link_to "Videos", videos_path%></li>&nspb;
+				
 				<% end%>
 				<% if user_signed_in? %>
 					<li class="notactive"><%= link_to "Sign Out", logout_path %></li>
